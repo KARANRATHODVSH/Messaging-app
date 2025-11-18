@@ -8,6 +8,22 @@ function saveUsers() {
         const list = document.getElementById("userList");
         list.innerHTML = "";
 
+        if (users.length === 0) {
+            list.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">👥</div>
+                    <h3>No users yet</h3>
+                    <p>Start by adding your first user to send messages!</p>
+                    <div class="empty-actions">
+                        <button class="btn-primary" onclick="focusUsernameInput()">
+                            ➕ Add First User
+                        </button>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
         users.forEach((u, index) => {
             list.innerHTML += `
                 <div class="user-card">
