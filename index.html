@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sender || Karan</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+        <h2>Add User</h2>
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Enter name" maxlength="50" oninput="filterUsernameInput(this); validateUsername()" onkeypress="return isLetterKey(event)">
+            <span class="validation-icon" id="username-icon"></span>
+            <div class="error-message" id="username-error"></div>
+        </div>
+        
+        <div class="input-group">
+            <input type="text" id="mobile" placeholder="Enter mobile number" maxlength="10" oninput="filterMobileInput(this); validateMobile()" onkeypress="return isNumberKey(event)">
+            <span class="validation-icon" id="mobile-icon"></span>
+            <div class="error-message" id="mobile-error"></div>
+        </div>
+
+        <div class="file-upload-wrapper">
+            <input type="file" id="fileInput" class="file-upload-input" accept=".txt" onchange="handleFileUpload(event)">
+            <label for="fileInput" class="file-upload-label" id="fileLabel">
+                📁 Choose .txt file or drag here
+            </label>
+            <div class="file-info" id="fileInfo">Supported format: Name,Mobile (one per line)</div>
+        </div>
+
+        <div class="import-summary" id="importSummary"></div>
+
+        <button class="btn" onclick="addUser()">Add User</button>
+
+        <h2 style="margin-top: 30px;">Message</h2>
+        <textarea id="message" rows="6" placeholder="Enter message here..."></textarea>
+
+        <button class="btn" onclick="sendMessages()">Send Messages</button>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-panel">
+        <h2>Saved Users</h2>
+        <div class="user-list-container" id="userList"></div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

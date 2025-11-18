@@ -1,0 +1,334 @@
+         body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 0;
+             background: #f0f2f5;
+         }
+
+         .container {
+             display: flex;
+             gap: 20px;
+             padding: 20px;
+             max-width: 1100px;
+             margin: auto;
+             min-height: 100vh;
+             box-sizing: border-box;
+         }
+
+         /* LEFT PANEL */
+         .left-panel {
+             flex: 1;
+             background: white;
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         }
+
+         .left-panel input,
+         .left-panel textarea {
+             width: 100%;
+             padding: 14px;
+             margin: 10px 0;
+             border-radius: 8px;
+             border: 1px solid #ccc;
+             font-size: 16px;
+             box-sizing: border-box;
+             transition: border-color 0.3s ease;
+         }
+
+         .left-panel input:focus,
+         .left-panel textarea:focus {
+             outline: none;
+             border-color: #25D366;
+         }
+
+         .input-group {
+             position: relative;
+             margin-bottom: 10px;
+         }
+
+         .error-message {
+             color: #dc3545;
+             font-size: 12px;
+             margin-top: 5px;
+             display: none;
+         }
+
+         .input-error {
+             border-color: #dc3545 !important;
+         }
+
+         .input-success {
+             border-color: #28a745 !important;
+         }
+
+         .validation-icon {
+             position: absolute;
+             right: 10px;
+             top: 50%;
+             transform: translateY(-50%);
+             font-size: 18px;
+             display: none;
+         }
+
+         .validation-icon.success {
+             color: #28a745;
+             display: block;
+         }
+
+         .validation-icon.error {
+             color: #dc3545;
+             display: block;
+         }
+
+         .file-upload-wrapper {
+             position: relative;
+             overflow: hidden;
+             display: inline-block;
+             width: 100%;
+         }
+
+         .file-upload-input {
+             position: absolute;
+             left: -9999px;
+         }
+
+         .file-upload-label {
+             display: block;
+             padding: 14px;
+             background: #f8f9fa;
+             border: 2px dashed #dee2e6;
+             border-radius: 8px;
+             text-align: center;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             margin: 10px 0;
+         }
+
+         .file-upload-label:hover {
+             background: #e9ecef;
+             border-color: #25D366;
+         }
+
+         .file-upload-label.has-file {
+             background: #d4edda;
+             border-color: #28a745;
+             color: #155724;
+         }
+
+         .file-info {
+             font-size: 12px;
+             color: #6c757d;
+             margin-top: 5px;
+         }
+
+         .import-summary {
+             background: #e7f3ff;
+             border: 1px solid #b3d9ff;
+             border-radius: 8px;
+             padding: 10px;
+             margin: 10px 0;
+             font-size: 14px;
+             display: none;
+         }
+
+         .import-summary.success {
+             background: #d4edda;
+             border-color: #28a745;
+             color: #155724;
+         }
+
+         .import-summary.error {
+             background: #f8d7da;
+             border-color: #dc3545;
+             color: #721c24;
+         }
+
+         .btn {
+             width: 100%;
+             padding: 14px;
+             background: #25D366;
+             color: white;
+             border: none;
+             border-radius: 8px;
+             font-size: 16px;
+             cursor: pointer;
+             margin-top: 10px;
+             transition: background-color 0.3s ease, transform 0.1s ease;
+             box-sizing: border-box;
+             min-height: 48px;
+         }
+
+         .btn:active {
+             transform: scale(0.98);
+         }
+
+         .btn:hover {
+             background: #1ebe5d;
+         }
+
+         /* RIGHT PANEL */
+         .right-panel {
+             flex: 1;
+             background: white;
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+             height: fit-content;
+             max-height: calc(100vh - 40px);
+             display: flex;
+             flex-direction: column;
+         }
+
+         .user-list-container {
+             flex: 1;
+             overflow-y: auto;
+             max-height: 608px;
+             margin-top: 10px;
+             padding-right: 5px;
+         }
+
+         .user-list-container::-webkit-scrollbar {
+             width: 6px;
+         }
+
+         .user-list-container::-webkit-scrollbar-track {
+             background: #f1f1f1;
+             border-radius: 3px;
+         }
+
+         .user-list-container::-webkit-scrollbar-thumb {
+             background: #c1c1c1;
+             border-radius: 3px;
+         }
+
+         .user-list-container::-webkit-scrollbar-thumb:hover {
+             background: #a8a8a8;
+         }
+
+         .user-card {
+             padding: 12px;
+             background: #f7f7f7;
+             border-radius: 10px;
+             margin-bottom: 10px;
+             border-left: 5px solid #25D366;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+
+         .delete-btn {
+             background: red;
+             color: white;
+             border: none;
+             padding: 6px 10px;
+             border-radius: 6px;
+             cursor: pointer;
+         }
+
+         .delete-btn:hover {
+             background: darkred;
+         }
+
+         /* RESPONSIVE */
+         @media(max-width: 1024px) {
+             .container {
+                 max-width: 100%;
+                 padding: 15px;
+             }
+         }
+
+         @media(max-width: 768px) {
+             .container {
+                 flex-direction: column;
+                 padding: 10px;
+                 gap: 15px;
+             }
+
+             .left-panel,
+             .right-panel {
+                 padding: 15px;
+             }
+
+             .right-panel {
+                 max-height: none;
+             }
+
+             .user-list-container {
+                 max-height: 500px;
+             }
+
+             h2 {
+                 font-size: 1.5rem;
+                 margin-bottom: 15px;
+             }
+
+             .left-panel input,
+             .left-panel textarea {
+                 padding: 12px;
+                 font-size: 16px;
+             }
+
+             .btn {
+                 padding: 12px;
+                 font-size: 16px;
+             }
+         }
+
+         @media(max-width: 480px) {
+             .container {
+                 padding: 8px;
+                 gap: 10px;
+             }
+
+             .left-panel,
+             .right-panel {
+                 padding: 12px;
+             }
+
+             h2 {
+                 font-size: 1.3rem;
+             }
+
+             .user-list-container {
+                 max-height: 300px;
+             }
+
+             .user-card {
+                 padding: 10px;
+                 flex-direction: column;
+                 align-items: flex-start;
+                 gap: 10px;
+             }
+
+             .delete-btn {
+                 align-self: flex-end;
+                 padding: 8px 12px;
+             }
+         }
+
+         @media(max-width: 320px) {
+
+             .left-panel,
+             .right-panel {
+                 padding: 10px;
+             }
+
+             h2 {
+                 font-size: 1.2rem;
+             }
+
+             .user-list-container {
+                 max-height: 250px;
+             }
+
+             .left-panel input,
+             .left-panel textarea {
+                 padding: 10px;
+             }
+
+             .btn {
+                 padding: 10px;
+                 font-size: 15px;
+             }
+         }
